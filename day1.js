@@ -6,7 +6,6 @@ function calculate(text) {
     var tokens = text.match(pattern);
     try{
         var val = evaluation(tokens);
-        if (tokens.length !== 0) throw new Error("ill-formed expression");
         return String(val);
     }
     catch(err){
@@ -19,8 +18,9 @@ function calculate(text) {
     read_operand: attempts to interpret first item in tokens as an int
 */
 function read_operand(tokens){
-    var num = tokens.shift();
-    num = parseInt(num, 10);
+    if (tokens.length === 0) throw new Error("missing operand");
+    var token = tokens.shift();
+    var num = parseInt(token, 10);
     if(isNaN(num)) throw new Error("number expected");
     return num;
 }
@@ -29,31 +29,23 @@ function read_operand(tokens){
     evaluation: performs mathematical operations represented by array of tokens
 */
 function evaluation(tokens){ 
-    if (tokens.length === 0){
-        throw new Error("missing operand (initial)");
-    }   
     var result = read_operand(tokens);
     while (tokens.length > 0){
-        var operator = tokens.shift();
-
-        if (tokens.length === 0){
-            throw new Error("missing operand");
-        }
-        
-        var temp = read_operand(tokens);
+        var operator = tokens.shift();     
+        var toMath = read_operand(tokens);
         
         switch(operator){
             case '+':
-                result+= temp;
+                result+= toMath;
                 break;
             case '-':
-                result-= temp;
+                result-= toMath;
                 break;
             case '*':
-                result*= temp;
+                result*= toMath;
                 break;
             case '/':
-                result/= temp;
+                result/= toMath;
                 break;
             default:
                 throw new Error("unrecognized operator");
