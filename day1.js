@@ -1,24 +1,16 @@
 /*
     calculate: evaluate the value of an arithmetic expression
-    try {
-       val = evaluate(tokens)
-      if tokens isn’t empty, throw an error “ill-formed expression”
-       return String(val)
-    } catch (err) {
-       return err;   // error message will be printed as the answer
-    }
 */
 function calculate(text) {
     var pattern = /\d+|\+|\-|\/|\*|\(|\)/g;
     var tokens = text.match(pattern);
-    //return JSON.stringify(tokens);
     try{
         var val = evaluation(tokens);
-        if (tokens.length !== 0) throw "ill-formed expression"; //THIS SEEMS INCORRECT BECAUSE STRING NEVER APPEARS
+        if (tokens.length !== 0) throw new Error("ill-formed expression");
         return String(val);
     }
     catch(err){
-        return "ill-formed expression!";
+        return "ill-formed expression: " + err.message;
     }
 }
 
@@ -28,13 +20,8 @@ function calculate(text) {
 */
 function read_operand(tokens){
     var num = tokens.shift();
-    try{
-        num = parseInt(num, 10);
-        if(isNaN(num)) throw "number expected";     //THIS SEEMS INCORRECT BECAUSE THE STRING NEVER DOES ANYTHING
-    }
-    catch(err){
-        return "number expected!";
-    }
+    num = parseInt(num, 10);
+    if(isNaN(num)) throw new Error("number expected");
     return num;
 }
 
@@ -43,14 +30,14 @@ function read_operand(tokens){
 */
 function evaluation(tokens){ 
     if (tokens.length === 0){
-        throw "missing operand";
+        throw new Error("missing operand (initial)");
     }   
     var result = read_operand(tokens);
     while (tokens.length > 0){
         var operator = tokens.shift();
 
         if (tokens.length === 0){
-            throw "missing operand";
+            throw new Error("missing operand");
         }
         
         var temp = read_operand(tokens);
@@ -69,7 +56,7 @@ function evaluation(tokens){
                 result/= temp;
                 break;
             default:
-                throw "unrecognized operator";
+                throw new Error("unrecognized operator");
         }
     }
     return result;
