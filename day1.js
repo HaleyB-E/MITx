@@ -5,7 +5,7 @@ function calculate(text) {
     var pattern = /\d+|\+|\-|\/|\*|\(|\)/g;
     var tokens = text.match(pattern);
     try{
-        var val = evaluation(tokens);
+        var val = evaluation(tokens, false);
         return String(val);
     }
     catch(err){
@@ -19,7 +19,13 @@ function calculate(text) {
 */
 function read_operand(tokens){
     if (tokens.length === 0) throw new Error("missing operand");
+    
     var token = tokens.shift();
+    
+    if (token == "("){
+        return evaluation(tokens, true);
+    }
+
     var num = parseInt(token, 10);
     if(isNaN(num)) throw new Error("number expected");
     return num;
@@ -27,11 +33,19 @@ function read_operand(tokens){
 
 /*
     evaluation: performs mathematical operations represented by array of tokens
+        boolean "true" indicates evaluating parentheses
 */
-function evaluation(tokens){ 
+function evaluation(tokens, parentheses){ 
     var result = read_operand(tokens);
     while (tokens.length > 0){
-        var operator = tokens.shift();     
+        var operator = tokens.shift();
+        if (operator == ")"){
+            if (parentheses){
+                return result;
+            }
+            throw new Error("unclosed parenthesis (right)")
+        }
+        
         var toMath = read_operand(tokens);
         
         switch(operator){
@@ -51,6 +65,7 @@ function evaluation(tokens){
                 throw new Error("unrecognized operator");
         }
     }
+    if (parentheses) throw new Error("unclosed parenthesis (left)");
     return result;
 }
 
