@@ -22,10 +22,16 @@ function read_operand(tokens){
     
     var token = tokens.shift();
     
+    //test for beginning of parenthetical subexpression
     if (token == "("){
         return evaluation(tokens, true);
     }
 
+    //test for negative sign
+    if (token == "-"){
+        token = token + tokens.shift();
+    }
+    
     var num = parseInt(token, 10);
     if(isNaN(num)) throw new Error("number expected");
     return num;
