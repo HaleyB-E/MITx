@@ -2,7 +2,7 @@
     calculate: evaluate the value of an arithmetic expression
 */
 function calculate(text) {
-    var pattern = /\d+|\+|\-|\/|\*|\(|\)/g;
+    var pattern = /\d*[.]*\d+|\+|\-|\/|\*|\(|\)/g;
     var tokens = text.match(pattern);
     try{
         var val = evaluation(tokens, false);
@@ -32,7 +32,7 @@ function read_operand(tokens){
         token = token + tokens.shift();
     }
     
-    var num = parseInt(token, 10);
+    var num = parseFloat(token, 10);
     if(isNaN(num)) throw new Error("number expected");
     return num;
 }
