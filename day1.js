@@ -49,7 +49,7 @@ function evaluation(tokens, parentheses){
             if (parentheses){
                 return result;
             }
-            throw new Error("unclosed parenthesis (right)")
+            throw new Error("unclosed parenthesis (right)");
         }
         
         var toMath = read_operand(tokens);
@@ -74,7 +74,6 @@ function evaluation(tokens, parentheses){
     if (parentheses) throw new Error("unclosed parenthesis (left)");
     return result;
 }
-
 
 
 
