@@ -1,8 +1,60 @@
 /*Stylesheet for calculator */
 
 h1{
-    font-size: 24pt;
+    font-size: 36pt;
     text-align: center;
     font-family: sans-serif;
+    font-weight: lighter;
     font-style: italic;
+    margin-bottom: -100px;
+}
+
+.calculator {
+    font-size: 24pt;
+}
+
+.calculator button {
+    font-size: 24pt;
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background-color: bisque;
+}
+
+/*#calc1 button {*/
+/*    font-size: 12pt;*/
+/*}*/
+
+.calculator input[type="text"] {
+    font-size: 24pt;
+    width: 850px;
+    height: 80px;
+    margin: 100px;
+    margin-right: 50px;
+    padding: 18px;
+    background-color: lavender;
+    border-radius: 30px;
+}
+
+.calculator input[type="text"]:hover {
+    border-width: 4px;
+}
+
+.calculator input[type="text"]:focus {
+    background-color: salmon;
+}
+
+.calculator .output {
+    background-color: rgb(218, 245, 248);
+    width: 1055px;
+    padding: 20px;
+    margin-left: 100px;
+    margin-top: -50px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    border-radius: 20px;
+}
+
+.highlight {
 }
