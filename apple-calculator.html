@@ -1,25 +1,60 @@
+<!--hbrandte+jhanley apple-calculator-->
 <html>
 <head>
-<title>Apple calculator</title>
+<link href="applecalc.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="applecalc.js"></script>
-<link href="applecalc.css" rel="stylesheet"></link>
 </head>
 <body>
-    
-    <div class="screen">
-        <input type="text" size=50>       
+<div class = calculator>
+<div class = background>
+    <div class = screen>
+        <input type="text" size=50 class="entry">       
         </input>
+    </div> 
+    <div class="row" id="row1">
+        <button class="smallbutton">MC</button>
+        <button class="smallbutton">M+</button>
+        <button class="smallbutton">M-</button>
+        <button class="smallbutton">MR</button>
     </div>
-    <div class="row" id="row1"></div>
-    <div class="row" id="row2"></div>
-    <div class="row" id="row3"></div>
+    <div class="row" id="row2">
+        <button class="smallbutton">C</button>
+        <button class="smallbutton">&#177;</button>
+        <button class="smallbutton mathbutton" data-operation="/">&divide;</button>
+        <button class="smallbutton mathbutton" data-operation="*">&#215;</button>
+        </class>
+        </class>
+
+    </div>
+    <div class="row" id="row3">
+        <button class="smallbutton numbutton">7</button>
+        <button class="smallbutton numbutton">8</button>
+        <button class="smallbutton numbutton">9</button>
+        <button class="smallbutton mathbutton" data-operation="-">&#8722;</button>
+    </div>
+    <div class="row" id="row4">
+        <button class="smallbutton numbutton">4</button>
+        <button class="smallbutton numbutton">5</button>
+        <button class="smallbutton numbutton">6</button>
+        <button class="smallbutton mathbutton" data-operation="+">+</button>
+    </div>
+    <div class="row" id="row5">
+        <class="offset">
+        <button class="smallbutton numbutton">1</button>
+        <button class="smallbutton numbutton">2</button>
+        <button class="smallbutton numbutton">3</button>
+        </class>
+        <button class="tallbutton"><h>=</h></button>
+    </div>
+    <div class="row" id="row6">
+        <button class="widebutton numbutton">0</button>
+        <button class="smallbutton decimal">.</button>
+    </div>
     <div class="row" id="row4"></div>
     <div class="row" id="row5"></div>
     <div class="row" id="row6"></div>
-    
+</div>
+</div>
 </body>
 </html>
-
-
-
