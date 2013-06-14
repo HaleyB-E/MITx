@@ -1,39 +1,77 @@
-/*hbrandte + jhanley apple calculator CSS*/
-.calculator .background {
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #DDDDDD), color-stop(1, #AFAFAF));
+/*Graphing Calculator CSS*/
 
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(top, #DDDDDD 0%, #AFAFAF 100%);
-    background-color:#ADADAD;
-    width:427px;
-    height:521px;
-    position: absolute;
-}
+.calculator {
+        background-color: #E0E0E0;
+        width: 420px;
+    }
+    
+    
+/*GET RID IF IT DOESN'T DO ANYTHING*/
 button:active {
     background-color:#343434;
 }
-.calculator input[type=text]{
-    background-color:#F0FBC8;
+
+/*Relevant to graph display*/
+.calculator canvas {
+    border: black solid 1px;
+    background-color: #F0FBC8;
+    margin-left: 10px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+   
+   
+/*Relevant to graph input/parameters (mostly textboxes)*/
+
+.calculator text{
+    margin-left: 10px;
+}
+.calculator .equation-input{
+    background: transparent;
     border:none;
-    font-size:28;
-    text-align:right;
-    width:374px;
-    height: 94px;
-    left: 24px;
-    top: 8px;
+    font-size: 17pt;
+    position: absolute;
+    left: 80px;
+    top: 278px;
+    width: 320px;
+    
+    
 }
-.calculator .screen{
-    width:374px;
-    height:94px;
+.calculator .input-text{
+    font-size: 17pt;
     background-color:#F0FBC8;
-    border-radius:10px;
-    border-style:inset;
-    border-width:4px;
-    left: 24px;
-    top: 8px;
-    position:relative;
+    position: absolute;
+    left: 12px;
+    top: 280px;
 }
+
+.calculator .xmin,.xmax{
+    width: 30px;
+    background-color: #F0FBC8;
+    border: black solid 1px;
+}
+.calculator .limits{
+    font-size: 17pt;
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+
+.calculator .plotbutton{
+    position: absolute;
+}
+
+/*.calculator input[type=text]{*/
+/*    background-color:#F0FBC8;*/
+/*    border:none;*/
+/*    font-size:28;*/
+/*    text-align:right;*/
+/*    width:374px;*/
+/*    height: 94px;*/
+/*    left: 24px;*/
+/*    top: 8px;*/
+/*}*/
 
 
 .calculator .smallbutton {
@@ -55,7 +93,7 @@ button:active {
     width: 90px;
     height: 118px;
     position: relative;
-    left: 7px;
+    left: 17px;
     top: 25px;
     background-color:#D8D5D0;
     border-radius:8px;
@@ -67,10 +105,10 @@ button:active {
 }
 
 .calculator .widebutton {
-    width:183px;
+    width:185px;
     height: 55px;
     position: relative;
-    left: 7px;
+    left: 8px;
     top: 25px;
     background-color:#D8D5D0;
     border-radius:8px;
@@ -104,11 +142,7 @@ button:active {
 .calculator #row6 button {
     position: relative;
     top: -10px;
-}
-
-h{
-    position:realtive;
-    top:32;
+    left: 20px;
 }
 
 .calculator .smallbutton:active{
@@ -120,31 +154,3 @@ h{
 .calculator .widebutton:active{
     background-color: #A8A49F;
 }
-
-.graphcalc {
-        background-color: #E0E0E0;
-        width: 420px;
-    }
-canvas {
-    border: black solid 1px;
-    background-color: rgb(214, 244, 252);
-    margin-left: 10px; 
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-    
-text{
-    margin-left: 10px;
-}
-
-button{
-	margin-left: 10px;
-}
-
-#input1{
-    width: 370px;
-}
-#input2{
-    width: 150px;
-}
-
