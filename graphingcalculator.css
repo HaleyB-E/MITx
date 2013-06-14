@@ -1,0 +1,150 @@
+/*hbrandte + jhanley apple calculator CSS*/
+.calculator .background {
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #DDDDDD), color-stop(1, #AFAFAF));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #DDDDDD 0%, #AFAFAF 100%);
+    background-color:#ADADAD;
+    width:427px;
+    height:521px;
+    position: absolute;
+}
+button:active {
+    background-color:#343434;
+}
+.calculator input[type=text]{
+    background-color:#F0FBC8;
+    border:none;
+    font-size:28;
+    text-align:right;
+    width:374px;
+    height: 94px;
+    left: 24px;
+    top: 8px;
+}
+.calculator .screen{
+    width:374px;
+    height:94px;
+    background-color:#F0FBC8;
+    border-radius:10px;
+    border-style:inset;
+    border-width:4px;
+    left: 24px;
+    top: 8px;
+    position:relative;
+}
+
+
+.calculator .smallbutton {
+    width: 90px;
+    height: 55px;
+    position: relative;
+    left: 13px;
+    top: 24px;
+    background-color:#D8D5D0;
+    border-radius:8px;
+    border:outset;
+    font-size:18pt;
+    margin: 3px;
+    font-family: 'Lucida Grande', 'Helvetica';
+    color:#2F2F2F;
+}
+
+.calculator .tallbutton {
+    width: 90px;
+    height: 118px;
+    position: relative;
+    left: 7px;
+    top: 25px;
+    background-color:#D8D5D0;
+    border-radius:8px;
+    border:outset;
+    font-size:18pt;
+    font-family: 'Arial', 'Helvetica';
+    color:#2F2F2F
+    
+}
+
+.calculator .widebutton {
+    width:183px;
+    height: 55px;
+    position: relative;
+    left: 7px;
+    top: 25px;
+    background-color:#D8D5D0;
+    border-radius:8px;
+    border:outset;
+    font-size:18pt;
+    font-family:'Arial', 'Helvetica';
+    color:#2F2F2F
+}
+
+.calculator #row2 button {
+    position: relative;
+    top: 28px;
+}
+.calculator #row3 button {
+    position: relative;
+    top: 32px;
+}
+.calculator #row4 button {
+    position: relative;
+    top: 39px;
+}
+.calculator #row5 .tallbutton {
+    position: relative;
+    top: 46px;
+}
+.calculator #row5 .smallbutton {
+    position: relative;
+    top: 17px;
+}
+
+.calculator #row6 button {
+    position: relative;
+    top: -10px;
+}
+
+h{
+    position:realtive;
+    top:32;
+}
+
+.calculator .smallbutton:active{
+    background-color: #A8A49F;
+}
+.calculator .tallbutton:active{
+    background-color: #A8A49F;
+}
+.calculator .widebutton:active{
+    background-color: #A8A49F;
+}
+
+.graphcalc {
+        background-color: #E0E0E0;
+        width: 420px;
+    }
+canvas {
+    border: black solid 1px;
+    background-color: rgb(214, 244, 252);
+    margin-left: 10px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+    
+text{
+    margin-left: 10px;
+}
+
+button{
+	margin-left: 10px;
+}
+
+#input1{
+    width: 370px;
+}
+#input2{
+    width: 150px;
+}
+

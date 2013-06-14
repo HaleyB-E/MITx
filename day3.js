@@ -49,6 +49,18 @@ function test_smiley(){
     var ctx = DOMcanvas.getContext('2d');
     
     ctx.beginPath();
-    ctx.arc(100,100,75) //centerx, centery, radius,startangle,endangle (rel to x axis, clockwise)
+    ctx.arc(100,100,75,0,2*Math.PI); //centerx, centery, radius,startangle,endangle (rel to x axis, clockwise)
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+    
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.arc(100,100,25,7*Math.PI / 4, 9 * Math.PI / 4);
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    
     
 }

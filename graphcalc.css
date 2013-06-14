@@ -1,0 +1,28 @@
+/*hbrandte + lu16j graphing calculator*/
+.graphcalc {
+        background-color: #E0E0E0;
+        width: 420px;
+    }
+canvas {
+    border: black solid 1px;
+    background-color: rgb(214, 244, 252);
+    margin-left: 10px; 
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+    
+text{
+    margin-left: 10px;
+}
+
+button{
+	margin-left: 10px;
+}
+
+#input1{
+    width: 370px;
+}
+#input2{
+    width: 150px;
+}
+
