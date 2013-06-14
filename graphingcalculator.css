@@ -1,0 +1,156 @@
+/*Graphing Calculator CSS*/
+
+.calculator {
+        background-color: #E0E0E0;
+        width: 420px;
+    }
+    
+    
+/*GET RID IF IT DOESN'T DO ANYTHING*/
+button:active {
+    background-color:#343434;
+}
+
+/*Relevant to graph display*/
+.calculator canvas {
+    border: black solid 1px;
+    background-color: #F0FBC8;
+    margin-left: 10px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+   
+   
+/*Relevant to graph input/parameters (mostly textboxes)*/
+
+.calculator text{
+    margin-left: 10px;
+}
+.calculator .equation-input{
+    background: transparent;
+    border:none;
+    font-size: 17pt;
+    position: absolute;
+    left: 80px;
+    top: 278px;
+    width: 320px;
+    
+    
+}
+.calculator .input-text{
+    font-size: 17pt;
+    background-color:#F0FBC8;
+    position: absolute;
+    left: 12px;
+    top: 280px;
+}
+
+.calculator .xmin,.xmax{
+    width: 30px;
+    background-color: #F0FBC8;
+    border: black solid 1px;
+}
+.calculator .limits{
+    font-size: 17pt;
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+
+.calculator .plotbutton{
+    position: absolute;
+}
+
+/*.calculator input[type=text]{*/
+/*    background-color:#F0FBC8;*/
+/*    border:none;*/
+/*    font-size:28;*/
+/*    text-align:right;*/
+/*    width:374px;*/
+/*    height: 94px;*/
+/*    left: 24px;*/
+/*    top: 8px;*/
+/*}*/
+
+
+.calculator .smallbutton {
+    width: 90px;
+    height: 55px;
+    position: relative;
+    left: 13px;
+    top: 24px;
+    background-color:#D8D5D0;
+    border-radius:8px;
+    border:outset;
+    font-size:18pt;
+    margin: 3px;
+    font-family: 'Lucida Grande', 'Helvetica';
+    color:#2F2F2F;
+}
+
+.calculator .tallbutton {
+    width: 90px;
+    height: 118px;
+    position: relative;
+    left: 17px;
+    top: 25px;
+    background-color:#D8D5D0;
+    border-radius:8px;
+    border:outset;
+    font-size:18pt;
+    font-family: 'Arial', 'Helvetica';
+    color:#2F2F2F
+    
+}
+
+.calculator .widebutton {
+    width:185px;
+    height: 55px;
+    position: relative;
+    left: 8px;
+    top: 25px;
+    background-color:#D8D5D0;
+    border-radius:8px;
+    border:outset;
+    font-size:18pt;
+    font-family:'Arial', 'Helvetica';
+    color:#2F2F2F
+}
+
+.calculator #row2 button {
+    position: relative;
+    top: 28px;
+}
+.calculator #row3 button {
+    position: relative;
+    top: 32px;
+}
+.calculator #row4 button {
+    position: relative;
+    top: 39px;
+}
+.calculator #row5 .tallbutton {
+    position: relative;
+    top: 46px;
+}
+.calculator #row5 .smallbutton {
+    position: relative;
+    top: 17px;
+}
+
+.calculator #row6 button {
+    position: relative;
+    top: -10px;
+    left: 20px;
+}
+
+.calculator .smallbutton:active{
+    background-color: #A8A49F;
+}
+.calculator .tallbutton:active{
+    background-color: #A8A49F;
+}
+.calculator .widebutton:active{
+    background-color: #A8A49F;
+}
