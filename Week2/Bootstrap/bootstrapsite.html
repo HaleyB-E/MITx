@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>Bootstrap, from Twitter</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-responsive.min.css">
+    </head>
+    <body>
+        
+        <!--Top navbar-->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Project Name</a>
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">About
+                        <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Menu item 1</a></li>
+                            <li><a href="#">Menu item 2</a></li>
+                            <li><a href="#">Menu item 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li> 
+                </ul>
+                <ul class="nav pull-right">
+                    <li><a href="#">Logged in as Username</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!--Added to fix issue with navbar padding - kind of questionable but it works alright-->
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+            </div>
+        </div>
+        
+        
+        <!--Side navbar-->
+        <div class="nav nav-list well span3">
+            <li class="nav-header">Sidebar</li>
+            <li class="active"><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="nav-header">Sidebar</li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </div>
+        
+        
+        <!--Hero and related modal popups-->
+        <div class="hero-unit span9">
+            <h1>Hello, world!</h1>
+            <p>Did you know that around 13 people per year are killed by vending machines? <a href="http://www.freakonomics.com/2011/09/08/how-are-sharks-less-dangerous-than-vending-machines-an-exercise-in-conditional-risk/">Be careful out there</a>.</p>
+            <p><a href ="#myModal" role="button" class="btn btn-primary btn-large" data-toggle="modal">Learn more &raquo;</a></p>
+        </div> 
+        
+        <div id="myModal" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Modal header goes here</h3>
+            </div>
+            <div class="modal-body">
+                <p>Aren't you glad you clicked that button? ...you thought you'd learn more about vending machine fatalities, didn't you? Oops.</p>
+            </div>
+            <div class="modal-footer">
+                    <a href="#angryModal" role="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true" data-toggle="modal">I'm angry</a>
+                    <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Learn less</a>
+            </div>
+        </div>
+        
+        <div id="angryModal" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Well that's really too bad.</h3>
+            </div>
+            <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</a>
+            </div>
+        </div>
+           
+        
+        <!--Text text text text text-->
+        <div class="row">
+            <div class="span4">
+                <h2>Heading 1</h2>
+                <text>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</text>
+                <p><a class="btn btn-small">View details &raquo;</a></p>
+            </div>
+            
+            <div class="span4">
+                <h2>Heading</h2>
+                <text>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</text>
+                <p><a class="btn btn-small">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h2>Heading</h2>
+                <text>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</text>
+                <p><a class="btn btn-small">View details &raquo;</a></p>
+            </div>
+        </div>
+        
+        <div class="row offset3">
+            <div class="span4">
+                <h2>Heading</h2>
+                <text>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</text>
+                <p><a class="btn btn-small">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h2>Heading</h2>
+                <text>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</text>
+                <p><a class="btn btn-small">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h2>Heading</h2>
+                <text>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</text>
+                <p><a class="btn btn-small">View details &raquo;</a></p>
+            </div>
+        </div>
+        
+        <!--Footer-->
+        <div class="row span12">
+            <hr>
+                <p>&copy Company 2013</p>
+            <p></p>
+        </div>
+    </body>
+</html>
