@@ -23,6 +23,10 @@ var yGroupMax = d3.max(stackedData, function(layer){
 
 var x_scale = d3.scale.ordinal().domain(d3.range(data[0].length)).rangeBands([0, chart_width]);
 var y_scale = d3.scale.linear().domain([0, yStackMax]).range([chart_height, 0]);
+var chartColor1 = d3.scale.linear().domain([1,10]).range(['#FF0000', '#620101']);
+var chartColor2= d3.scale.linear().domain([1,30]).range(['#FCFF00', '#6E4A06']);
+var chartColor3 = d3.scale.linear().domain([1, 30]).range(['#2CFF01', '#105A01']);
+var chartColor4 = d3.scale.linear().domain([1, 30]).range(['#0A23FF', '#010741']);
 
 var chart = d3.select(".chart-container").append("svg")
     .attr("class", "chart")
@@ -66,6 +70,18 @@ var rects = layer_groups.selectAll("rect").data(function(d) {
     }).attr("width", x_scale.rangeBand())
     .attr("height", function(d){
         return y_scale(d.y0) - y_scale(d.y0 + d.y);
+    })
+    .style("fill", function(d, i, j){
+        if (j === 0){
+            return chartColor1(d.y);
+        }
+        else if (j=== 1){
+            return chartColor2(d.y);
+        }
+        else if (j === 2){
+            return chartColor3(d.y);
+        }
+        return chartColor4(d.y);
     });
 
 function goGrouped(){
