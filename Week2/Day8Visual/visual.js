@@ -99,5 +99,16 @@ function goGrouped(){
                 return y_scale(d.y);
             }).attr("height", function(d) {
                 return chart_height - y_scale(d.y);
+            }).style("fill", function(d, i, j){
+                if (j === 0){
+                    return 'red';
+                }
+                else if (j=== 1){
+                    return 'yellow';
+                }
+                else if (j === 2){
+                    return 'green';
+                }
+                return 'blue';
             });
 }
