@@ -6,16 +6,46 @@ var knapsack = (function() {
     
     function setup(div){ 
         
-        var ungrabbedBin = $('<div class="ungrabbedBin itemBin">House</div>');
-        var grabbedBin = $('<div class="grabbedBin itemBin">Knapsack</div>');
+        //sets up major regions - header; ungrabbedBin(house), grabbedBin(knapsack), and results (to store combinations with relevant values)
+        var binHeader = $('<div class="row binHeader"><div class="span4"><h1>House</h1></div><div class="span4"><h1>Knapsack</h1></div><div class="span4"><h1>Results</h1></div>');
+        var ungrabbedBin = $('<div class="span4 ungrabbedBin itemBin"></div>');
+        var grabbedBin = $('<div class="span4 grabbedBin itemBin"></div>');
+        var results = $('<div class="span4 results itemBin"><table class="resultsTable table table-striped" border="1"><tr><thead><th>Value</th><th>Weight</th><th>Items</th></thead></tr></table></div>');   //MAKE NOT ITEMBIN LATER
         
-        $(grabbedBin).append('<p><text>Current value: <span class="grabbedValue">0</span></text><p><text>Current weight: <span class="grabbedWeight">0</span></text>');
+        //adds auto-updating record of weight and value to grabbedBin
+        $(grabbedBin).append('<p><text>Current value: $<span class="grabbedValue">0</span></text><p><text>Current weight: <span class="grabbedWeight">0</span> kg</text>');
+        
+        //creates button to save current combination on results bar
+        var saveButton = $('<p><button class="btn btn-primary">Save combination</button></p>');
+        saveButton.click(function() {
+            var weight = currentWeight;
+            var value = currentValue;
+            var items = ($('.grabbedBin').children('.itemButton').children('img'));
+            
+            //creates a string containing all items in the combo
+            var combo = "";
+            for (var i = 0; i < items.length; i++){
+                combo += $(items[i]).data("name");
+                if (i < (items.length - 1)){
+                    combo += ", ";
+                }
+            }
+            
+            $('.resultsTable').append('<tr><td>' + currentValue + '</td><td>' + currentWeight + '</td><td>' + combo + '</td></tr>');
+            
+        });
+        
+        
+        
+        
+        $(grabbedBin).append(saveButton);
+        
+        
         
         function updateDisplay(){
             $('.grabbedValue').text(currentValue);
             $('.grabbedWeight').text(currentWeight);
-        }
-        
+        }   
         
         //sets initial weight to zero and max weight to page-provided limit
         currentWeight = 0;
@@ -24,10 +54,10 @@ var knapsack = (function() {
         //creates buttons with each item on them and starts them in ungrabbedBin
         $('img').each(function() {
             var button = $('<button class="itemButton"> $' + $(this).data("value") + ',' + $(this).data("weight") + ' kg</button>').append(this);
-            ungrabbedBin.append(button);     
+            $(ungrabbedBin).append(button);     
         }); 
         
-        $(div).append(ungrabbedBin, grabbedBin);
+        $(div).append(binHeader, ungrabbedBin, grabbedBin, results);
         
         //adds functionality to buttons so they move when clicked (if valid weightwise)
         $('.itemButton').click(function() {
@@ -43,7 +73,7 @@ var knapsack = (function() {
                 }
                 else{
                     //alert goes here
-                    console.log("FAILURE");
+                    alert("You have exceeded your knapsack's weight limit!");
                 }
             }
             else{
@@ -65,6 +95,9 @@ var knapsack = (function() {
     return {setup: setup};
     
 })();
+
+
+
 
 $(document).ready(function () {
     $('.knapsack').each(function () {
