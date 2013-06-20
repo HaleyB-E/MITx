@@ -10,19 +10,16 @@ var knapsack = (function() {
         var binHeader = $('<div class="row binHeader"><div class="span4"><h1>House</h1></div><div class="span4"><h1>Knapsack</h1></div><div class="span4"><h1>Results</h1></div>');
         var ungrabbedBin = $('<div class="span4 ungrabbedBin itemBin"></div>');
         var grabbedBin = $('<div class="span4 grabbedBin itemBin"></div>');
-        var results = $('<div class="span4 results itemBin"><table class="resultsTable table table-striped" border="1"><tr><thead><th>Value</th><th>Weight</th><th>Items</th></thead></tr></table></div>');   //MAKE NOT ITEMBIN LATER
+        var results = $('<div class="span4 results"><table class="resultsTable table table-striped" border="1"><tr><thead><th>Value</th><th>Weight</th><th>Items</th></thead></tr></table></div>');
         
         //adds auto-updating record of weight and value to grabbedBin
         $(grabbedBin).append('<p><text>Current value: $<span class="grabbedValue">0</span></text><p><text>Current weight: <span class="grabbedWeight">0</span> kg</text>');
         
         //creates button to save current combination on results bar
-        var saveButton = $('<p><button class="btn btn-primary">Save combination</button></p>');
+        var saveButton = $('<button class="btn btn-primary">Save combination</button>');
         saveButton.click(function() {
-            var weight = currentWeight;
-            var value = currentValue;
-            var items = ($('.grabbedBin').children('.itemButton').children('img'));
-            
             //creates a string containing all items in the combo
+            var items = ($('.grabbedBin').children('.itemButton').children('img'));
             var combo = "";
             for (var i = 0; i < items.length; i++){
                 combo += $(items[i]).data("name");
@@ -30,15 +27,23 @@ var knapsack = (function() {
                     combo += ", ";
                 }
             }
-            
-            $('.resultsTable').append('<tr><td>' + currentValue + '</td><td>' + currentWeight + '</td><td>' + combo + '</td></tr>');
-            
+            //adds relevant data to table
+            $('.resultsTable').append('<tr><td>' + currentValue + '</td><td>' + currentWeight + '</td><td>' + combo + '</td></tr>'); 
+        });
+        
+        //creates button to clear items from knapsack
+        var clearButton = $('<button class="btn">Clear Knapsack</button>');
+        clearButton.click(function() {
+            var items = $('.grabbedBin').children('.itemButton').each(function() {
+                currentWeight -= $(this).find('img').data('weight');
+                currentValue -= $(this).find('img').data('value');
+                this.remove();
+                $('.ungrabbedBin').append(this);
+            });
         });
         
         
-        
-        
-        $(grabbedBin).append(saveButton);
+        $(grabbedBin).append(saveButton, clearButton);
         
         
         

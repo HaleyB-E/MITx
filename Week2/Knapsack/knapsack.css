@@ -1,5 +1,5 @@
 .itemBin{
-    height: 400px;
+    height: 220px;
     width: 600px;
     border: 1px solid black;
 
@@ -15,6 +15,10 @@
 .itemButton {
     height: auto;
     width: auto;
+/*
+    background-color: #fff;
+    border: black solid 1px;
+*/
 }
 
 .binHeader{
