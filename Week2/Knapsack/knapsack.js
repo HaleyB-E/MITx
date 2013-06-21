@@ -9,14 +9,14 @@ var knapsack = (function() {
         //REGION SETUP
         
         //sets up major regions - header; ungrabbedBin(house), grabbedBin(knapsack), and results (to store combinations with relevant values)
-        var binHeader = $('<div class="row binHeader"><div class="span4"><h1>House</h1></div>'
-                        + '<div class="span4"><h1>Knapsack</h1></div><div class="span4"><h1>Results</h1>'
-                        +'</div><div class="span4"><h2>Graph (kg vs. $)</h2></div>');
-        var ungrabbedBin = $('<div class="span4 ungrabbedBin itemBin"></div>');
-        var grabbedBin = $('<div class="span4 grabbedBin itemBin"></div>');
-        var results = $('<div class="span4 results"><table class="resultsTable table table-striped" border="1">'
+        var binHeader = $('<div class="row binHeader"><div class="span3"><h1>House</h1></div>'
+                        + '<div class="span3"><h1>Knapsack</h1></div><div class="span3"><h1>Results</h1>'
+                        +'</div><div class="span3 offset1"><h3>Graph (kg vs. $)</h3></div>');
+        var ungrabbedBin = $('<div class="span3 ungrabbedBin itemBin"></div>');
+        var grabbedBin = $('<div class="span3 grabbedBin itemBin"></div>');
+        var results = $('<div class="span3 results"><table class="resultsTable table table-striped" border="1">'
                         + '<tr><thead><th>Value</th><th>Weight</th><th>Items</th></thead></tr></table></div>');
-        var graphContainer = $('<div class="span4 graph-container"></div>');
+        var graphContainer = $('<div class="span3 graph-container"></div>');
         
         //adds auto-updating record of weight and value to grabbedBin
         $(grabbedBin).append('<p><text>Current value: $<span class="grabbedValue">0</span></text>'
@@ -26,7 +26,7 @@ var knapsack = (function() {
         //BUTTONS
         
         //creates button to save current combination on results bar
-        var saveButton = $('<button class="btn btn-primary resultsButton">Save combination</button>');
+        var saveButton = $('<p><button class="btn btn-primary resultsButton">Save combination</button>');
         saveButton.click(function() {
             //creates a string containing all items in the combo
             var items = ($('.grabbedBin').children('.itemButton').children('img'));
@@ -45,7 +45,7 @@ var knapsack = (function() {
         });
         
         //creates button to clear items from knapsack
-        var clearButton = $('<button class="btn resultsButton">Clear Knapsack</button>');
+        var clearButton = $('<p><button class="btn resultsButton">Clear Knapsack</button><p>');
         clearButton.click(function() {
             var items = $('.grabbedBin').children('.itemButton').each(function() {
                 currentWeight -= $(this).find('img').data('weight');
@@ -196,9 +196,6 @@ var knapsack = (function() {
             
             var xScaleTicks = x_scale.ticks(5);
             var yScaleTicks = y_scale.ticks(5);
-            
-            //console.log(xScaleTicks);
-            console.log(yScaleTicks);
             
             //DATA
             //move old datapoints to new location            
