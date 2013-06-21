@@ -49,13 +49,21 @@ var knapsack = (function() {
                 this.remove();
                 $('.ungrabbedBin').append(this);
             });
+            updateDisplay();
         });
         
         $(grabbedBin).append(saveButton, clearButton);
         
+        var updateButton = $('<button class="btn">Update graph</button>');
+        updateButton.click(updateGraph);
+        
         //creates button to graph value vs. weight for data
         var graphButton = $('<button class="btn">Graph data</button>');
-        graphButton.click(updateGraph);
+        graphButton.click(function(){
+            createGraph();
+            $(results).append(updateButton);
+            this.remove();
+        });
         
         $(results).append(graphButton);
    
@@ -84,14 +92,12 @@ var knapsack = (function() {
         
         //GRAPH
         
-        function updateGraph(){            
-            $('.graph').remove();
-            
-            //At the moment, this draws a new graph every time. This is not optimal.
-            var graph = d3.select(".graph-container").append("svg")
+        var graph = d3.select(".graph-container").append("svg")
                 .attr("class", "graph")
                 .attr("height", "220px")
                 .attr("width", "350px");
+        
+        function createGraph(){
             
             var dataSet = d3.values(data.weightValuePair);
             
@@ -102,13 +108,10 @@ var knapsack = (function() {
             var y_scale = d3.scale.linear().domain([0, d3.max(dataSet, function(d){
                 return d[1];
             })]).range([200, 50]);
-                        
-            var test = [dataSet, d3.values(data.combo)];
-            
+                                    
             //adds datapoints to graph
             graph.selectAll("circle").data(dataSet)
                 .enter().append("circle")
-                .attr("id", "datapoint")
                 .attr("cx", function(d){
                     return x_scale(d[0]);
                 }).attr("cy", function(d){
@@ -144,6 +147,96 @@ var knapsack = (function() {
                 .text(String)
                 .attr("dy", 12);
         }
+        
+        
+        function updateGraph(){
+            //recalculate data and scaling factors
+            var dataSet = d3.values(data.weightValuePair);
+            
+            var x_scale = d3.scale.linear().domain([0, d3.max(dataSet, function(d){
+                return d[0];
+            })]).range([10, 300]);
+            var y_scale = d3.scale.linear().domain([0, d3.max(dataSet, function(d){
+                return d[1];
+            })]).range([200, 50]);
+            
+            var xScaleLabels = x_scale.ticks(5);
+            var yScaleLabels = y_scale.ticks(5);
+            
+            console.log(xScaleLabels);
+            console.log(yScaleLabels);
+            
+            //DATA
+            //move old datapoints to new location            
+            graph.selectAll("circle").transition()
+                .duration(1000)
+                .attr("cx", function(d){
+                    return x_scale(d[0]);
+                }).attr("cy", function(d){
+                    return y_scale(d[1]);
+                }).attr("r", 3);
+            //place new datapoints on graph
+            graph.selectAll("circle").data(d3.values(data.weightValuePair))
+                .enter().append("circle")
+                .attr("cx", function(d){
+                    return x_scale(d[0]);
+                }).attr("cy", function(d){
+                    return y_scale(d[1]);
+                }).attr("r", 3);
+            
+            //AXIS LABELS
+            
+            graph.selectAll('.y-scale-label').transition()
+                .duration(1000)
+                .text(function(d,i){
+                    return y_scale.ticks(5)[i];
+                });
+            
+            graph.selectAll('.y-scale-label').data(y_scale.ticks(5))
+                .enter().append("text")
+                .attr("class", "y-scale-label")
+                .attr("x", 0)
+                .attr("y", y_scale)
+                .text(String);
+            
+            //adds x-axis labels to graph
+            graph.selectAll(".x-scale-label").data(x_scale.ticks(5))
+                .enter().append("text")
+                .attr("class", "x-scale-label")
+                .attr("y", 200)
+                .attr("x", x_scale)
+                .text(String)
+                .attr("dy", 12);
+
+        }
+            
+            
+            
+//            $('svg').remove();
+//            graph = d3.select(".graph-container").append("svg")
+//                .attr("class", "graph")
+//                .attr("height", "220px")
+//                .attr("width", "350px");
+//            
+//            createGraph();
+            
+//                        
+//            d3.selectAll('.circle').transition()
+//                .attr("cx", function(d){
+//                    return x_scale(d[0]);
+//                });
+////                }).attr("cy", function(d){
+////                    return y_scale(d[1]);
+////                }).attr("r", 3);
+//            
+////            d3.selectAll('.x-scale-label').transition()
+////                .attr("x", x_scale)
+////                .text(String);
+//            
+//            //d3.selectAll(
+            
+            
+        
         
         
         //ITEM MOVEMENT
