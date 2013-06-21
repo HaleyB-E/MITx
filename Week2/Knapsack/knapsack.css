@@ -1,9 +1,9 @@
 .itemBin{
-    height: 300px;
-    width: 600px;
+    height: 250px;
+    width: 550px;
     border: 1px solid black;
     padding: 5px;
-
+    text-align: center;
 }
 
 .knapsack img{
@@ -16,8 +16,8 @@
 .itemButton {
     height: auto;
     width: auto;
-/*    background-color: #fff;*/
-/*    border: black solid 1px;*/
+    background-color: #fff;
+    border: none;
     padding: 10px;
 }
 
@@ -31,4 +31,12 @@
 
 .graph line{
     stroke: #ccc;
+}
+
+h2{
+    text-align: right;
+}
+
+.resultsButton{
+    margin: 5px;
 }
